@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Layout from '../core/Layout';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -22,22 +21,12 @@ const Signin = () => {
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, buttonText: 'Submitting' });
-        axios({
-            method: 'POST',
-            url: `${process.env.REACT_APP_API}/signin`,
-            data: { email, password }
-        })
-            .then(response => {
-                console.log('SIGNIN SUCCESS', response);
-                // save the response (user, token) localstorage/cookie
-                setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
-                toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-            })
-            .catch(error => {
-                console.log('SIGNIN ERROR', error.response.data);
-                setValues({ ...values, buttonText: 'Submit' });
-                toast.error(error.response.data.error);
-            });
+
+        setTimeout(() => {
+            toast.success(`Hey, Welcome back!`);
+            setValues({ buttonText: 'Submited' });
+            this.props.history.push('/signup');
+        }, 1000);
     };
 
     const signinForm = () => (

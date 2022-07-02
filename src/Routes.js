@@ -1,17 +1,15 @@
-import { BrowserRouter, Switch ,Route } from "react-router-dom";
-import App from "./App";
+import { BrowserRouter, Switch ,Route , Redirect} from "react-router-dom";
 import Signup from "./auth/signup";
 import Signin from "./auth/signin";
-import Activate from "./auth/activate";
+// import dashboard from "./dashboard";
 
-const Routes = () => {
+const Routes = ({isLoggedIn}) => {
     return (
         <BrowserRouter>
         <Switch>
-            <Route path="/"  exact component={App} />
-            <Route path="/signup"  exact component={Signup} />
             <Route path="/signin"  exact component={Signin} />
-            <Route path="auth/activate"  exact component={Activate} />
+            <Redirect from="/" to="/signin" />
+            <Route path="/signup"  exact component={Signup} />
         </Switch>
         </BrowserRouter>
     )

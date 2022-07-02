@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Layout from '../core/Layout';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const Signup = () => {
@@ -49,37 +48,19 @@ const Signup = () => {
         event.preventDefault();
         setValues({...values, buttonText: 'Submitting'});
 
-        axios({
-            method: 'POST',
-            url: `${process.env.REACT_APP_API}/signup`,
-            data: {name, email, password}
-        })
-        .then(response => {
-            console.log('SIGNUP SUCCESS', response);
-            setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
-            toast(response.data.message,  {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
-        })
-        .catch(error => {
-            console.log('SIGNUP ERROR', error.response.data);
-            setValues({ ...values, buttonText: 'Submit' });
-            toast.error(error.response.data.error,  {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
-        });
+        toast(`Hey ${name} you have been signed Up, Please sign in`,  {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+
+            setTimeout(() => {
+                setValues({ ...values, name: '', email: '', password: '', buttonText: 'Submitted' });
+            }, 1000);
     }
 
    return ( 
