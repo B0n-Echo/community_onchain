@@ -3,13 +3,13 @@ import Signup from "./auth/signup";
 import Signin from "./auth/signin";
 // import dashboard from "./dashboard";
 
-const Routes = ({isLoggedIn}) => {
+const Routes = () => {
     return (
         <BrowserRouter>
         <Switch>
+            <Route path="/signup"  exact component={Signup} />
             <Route path="/signin"  exact component={Signin} />
             <Redirect from="/" to="/signin" />
-            <Route path="/signup"  exact component={Signup} />
         </Switch>
         </BrowserRouter>
     )
