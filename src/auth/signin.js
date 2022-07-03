@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Layout from '../core/Layout';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -32,7 +32,7 @@ const Signin = () => {
 
     const pushToDashboard = () => {
         setTimeout(() => {
-            history.push("/signup");
+            history.push("/dashboard");
         }, 1000);
     }
 
