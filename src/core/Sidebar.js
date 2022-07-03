@@ -37,12 +37,12 @@ function Sidebar() {
     <div className="sidebar__profile">
       {/* <Avatar /> */}
       <div className="sidebar__profileInfo">
-        <h3>SrikarK</h3>
-        <p>#ID</p>
+        <h3>User Name</h3>
+        <p>@yourUserIdHere</p>
       </div>
 
       <div className="sidebar__profileIcons">
-      🚧
+         Icons Here 
       🚧
       🚧
       </div>
