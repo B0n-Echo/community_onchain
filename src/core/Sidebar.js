@@ -3,6 +3,12 @@ import "./Sidebar.css"
 import SidebarChannel from './SidebarChannel';
 
 function Sidebar() {
+
+  const handleAddChannel = function() {
+
+  }
+
+  
   return (
     <div className="sidebar">
     <div className="sidebar__top">
@@ -15,12 +21,15 @@ function Sidebar() {
         <h4>Test here</h4>
         </div>
 
-                   </div>
+        <button onClick={handleAddChannel} className="sidebar__addChannel" />
+
+       </div>
+
         <div className="sidebar__channelsList">
-             <SidebarChannel />
-             <SidebarChannel />
-              <SidebarChannel />
-              <SidebarChannel />
+             <SidebarChannel channelName='Youtube' />
+             <SidebarChannel  channelName='ABC'/>
+              <SidebarChannel  channelName='React'/>
+              <SidebarChannel  channelName='Team Meet'/>
         </div>
     </div>
 
